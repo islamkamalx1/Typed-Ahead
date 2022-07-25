@@ -1,10 +1,10 @@
-    document.body.innerHTML = `<form class="search-form">
-    <input type="text" class="search" placeholder="City or State">
-    <ul class="suggestions">
-        <li>Filter for a city</li>
-        <li>or a state</li>
-    </ul>
-    </form>`
+document.body.innerHTML = `<form class="search-form">
+<input type="text" class="search" placeholder="City or State">
+<ul class="suggestions">
+    <li>Filter for a city</li>
+    <li>or a state</li>
+</ul>
+</form>`
 
 const endpoint = 'https://gist.githubusercontent.com/Miserlou/c5cd8364bf9b2420bb29/raw/2bf258763cdddd704f8ffd3ea9a3e81d25e2c6f6/cities.json';
 
@@ -38,7 +38,12 @@ function displayMatches() {
             </li>
             `
     }).join("");
-    suggestions.innerHTML = html
+    suggestions.innerHTML = html;
+    if (this.value === "") {
+        suggestions.innerHTML =
+        `<li>Filter for a city</li>
+        <li>or a state</li>`
+    }
 }
 
 const searchInput = document.querySelector(".search");
